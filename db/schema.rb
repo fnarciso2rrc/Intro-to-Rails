@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_10_16_181507) do
+ActiveRecord::Schema[7.2].define(version: 2024_10_24_143059) do
+  create_table "customer_products", force: :cascade do |t|
+    t.integer "customer_id", null: false
+    t.integer "product_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["customer_id"], name: "index_customer_products_on_customer_id"
+    t.index ["product_id"], name: "index_customer_products_on_product_id"
+  end
+
   create_table "customers", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
@@ -40,6 +49,8 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_16_181507) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "customer_products", "customers"
+  add_foreign_key "customer_products", "products"
   add_foreign_key "customers", "dogs"
   add_foreign_key "customers", "products"
 end
