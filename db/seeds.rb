@@ -76,8 +76,6 @@ end
     CustomerProduct.create(customer: new_customer, product: random_product)
 end
 
-
-
 puts "There are #{Dog.count} Dog"
 puts "There are #{Product.count} Product"
 puts "There are #{Customer.count} Customers"
