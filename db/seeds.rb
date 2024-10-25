@@ -5,9 +5,15 @@ require 'faker'
 
 
 CustomerProduct.delete_all
+
+Customer.delete_all
+ActiveRecord::Base.connection.execute("DELETE FROM sqlite_sequence WHERE name = 'customers'")
+
 Dog.delete_all
-# Customer.delete_all
+ActiveRecord::Base.connection.execute("DELETE FROM sqlite_sequence WHERE name = 'dogs'")
+
 Product.delete_all
+ActiveRecord::Base.connection.execute("DELETE FROM sqlite_sequence WHERE name = 'products'")
 
 
 # DOGS
@@ -59,15 +65,14 @@ products.each do |product|
 end
 
 # CUSTOMER
-
 100.times do
     new_customer = Customer.create(
         first_name: Faker::Name.first_name,
         last_name: Faker::Name.last_name,
-        age: Faker::Number.between(from: 1, to: 100)
-        dog: Dog.find(Faker::Number.between(from: 1, to: 25))
+        age: Faker::Number.between(from: 1, to: 100),
     )
 end
+
 
 puts "There are #{Dog.count} Dog"
 puts "There are #{Product.count} Product"
