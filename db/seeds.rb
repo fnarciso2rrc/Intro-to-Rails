@@ -6,12 +6,11 @@ require 'faker'
 
 CustomerProduct.delete_all
 Dog.delete_all
+# Customer.delete_all
 Product.delete_all
 
-groceryFile = Rails.root.join("db/GroceryDataset.csv")
-groceryCSV = File.read(groceryFile)
 
- 
+# DOGS
 url = 'https://dog.ceo/api/breeds/list/all'
 uri = URI(url)
 response = Net::HTTP.get(uri)
@@ -40,11 +39,38 @@ end
         main_breed: main_breed,
         sub_breed: sub_breed,
         dog_name: Faker::Name.first_name,
-        # customer: Customer.find(1)
     )
-
-    puts dog.errors.full_messages unless dog.persisted?
 
 end
 
+# PRODUCTS
+productFile = Rails.root.join("db/GroceryDataset.csv")
+productCSV = File.read(productFile)
+
+products = CSV.parse(productCSV, headers: true)
+
+products.each do |product|
+    new_product = Product.create(
+        product_name: product["Title"],
+        category: product["Sub Category"],
+        price: Faker::Number.between(from: 1, to: 100),
+        description: product["Product Description"]
+    )
+end
+
+# CUSTOMER
+
+100.times do
+    new_customer = Customer.create(
+        first_name: Faker::Name.first_name,
+        last_name: Faker::Name.last_name,
+        age: Faker::Number.between(from: 1, to: 100)
+        dog: Dog.find(Faker::Number.between(from: 1, to: 25))
+    )
+end
+
 puts "There are #{Dog.count} Dog"
+puts "There are #{Product.count} Product"
+puts "There are #{Customer.count} Customers"
+
+
