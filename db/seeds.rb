@@ -32,6 +32,8 @@ end
 
     breed_parts = main_breed.split('-')
 
+
+
     if breed_parts.length > 1
         # It has a sub-breed, use it as the sub-breed
         sub_breed = breed_parts[1]  # Get the sub-breed part
@@ -65,15 +67,14 @@ end
 
 # CUSTOMER
 100.times do
-    random_product = Product.order("RANDOM()").take
+    random_dog = Dog.order("RANDOM()").take
 
     new_customer = Customer.create(
         first_name: Faker::Name.first_name,
         last_name: Faker::Name.last_name,
         age: Faker::Number.between(from: 1, to: 100),
+        dogs: random_dog.dog_id
     )
-
-    CustomerProduct.create(customer: new_customer, product: random_product)
 end
 
 puts "There are #{Dog.count} Dog"
