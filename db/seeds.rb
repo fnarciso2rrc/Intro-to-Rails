@@ -67,13 +67,13 @@ end
 
 # CUSTOMER
 100.times do
-    random_dog = Dog.order("RANDOM()").take
+    random_dog = Dog.order("RANDOM()").first
 
     new_customer = Customer.create(
         first_name: Faker::Name.first_name,
         last_name: Faker::Name.last_name,
         age: Faker::Number.between(from: 1, to: 100),
-        dogs: random_dog.dog_id
+        dogs: [random_dog]
     )
 end
 
