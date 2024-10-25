@@ -65,14 +65,18 @@ end
 
 # CUSTOMER
 100.times do
+    random_product = Product.order("RANDOM()").take
+
     new_customer = Customer.create(
         first_name: Faker::Name.first_name,
         last_name: Faker::Name.last_name,
         age: Faker::Number.between(from: 1, to: 100),
     )
+
+    CustomerProduct.create(customer: new_customer, product: random_product)
 end
 
-CustomerProduct.create(customer: new_customer, product: new_product)
+
 
 puts "There are #{Dog.count} Dog"
 puts "There are #{Product.count} Product"
