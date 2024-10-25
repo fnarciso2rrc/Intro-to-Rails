@@ -4,8 +4,8 @@ class CreateCustomers < ActiveRecord::Migration[7.2]
       t.string :first_name
       t.string :last_name
       t.integer :age
-      t.references :product, null: false, foreign_key: true
-      t.references :dog, null: false, foreign_key: true
+      t.references :product, null: true, foreign_key: true
+      t.references :dog, null: true, foreign_key: true
 
       t.timestamps
     end

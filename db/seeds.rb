@@ -6,7 +6,6 @@ require 'faker'
 
 CustomerProduct.delete_all
 Dog.delete_all
-Customer.delete_all
 Product.delete_all
 
 groceryFile = Rails.root.join("db/GroceryDataset.csv")
@@ -37,21 +36,15 @@ end
     sub_breed = nil
     end
 
-    Dog.create(
+    dog = Dog.create(
         main_breed: main_breed,
         sub_breed: sub_breed,
+        dog_name: Faker::Name.first_name,
+        # customer: Customer.find(1)
     )
+
+    puts dog.errors.full_messages unless dog.persisted?
+
 end
-# # Flatten the breeds hash and store them in an array
-# breeds = dog_breeds['message'].flat_map do |breed, sub_breeds|
-#     sub_breeds.empty? ? [breed] : sub_breeds.map { |sub| "#{breed}-#{sub}" }
-#   end
-  
-#   # Randomize the breeds
-#   randomized_breeds = breeds.shuffle
-  
-#   # Example: Print random dog breeds
-#   puts "Randomized Dog Breeds:"
-#   randomized_breeds.each do |breed|
-#     puts breed
-#   end
+
+puts "There are #{Dog.count} Dog"
