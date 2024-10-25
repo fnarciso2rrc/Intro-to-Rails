@@ -24,7 +24,7 @@ dog_breeds = JSON.parse(response)
 
 # Store in array
 breeds = dog_breeds['message'].flat_map do |breed, sub_breeds|
-    sub_breeds.empty? ? [breed] : sub_breeds.map { |sub| "#{breed}-#{sub}" }
+    sub_breeds.empty? ? [ breed ] : sub_breeds.map { |sub| "#{breed}-#{sub}" }
 end
 
 25.times do
@@ -46,7 +46,6 @@ end
         sub_breed: sub_breed,
         dog_name: Faker::Name.first_name,
     )
-
 end
 
 # PRODUCTS
@@ -73,9 +72,8 @@ end
     )
 end
 
+CustomerProduct.create(customer: new_customer, product: new_product)
 
 puts "There are #{Dog.count} Dog"
 puts "There are #{Product.count} Product"
 puts "There are #{Customer.count} Customers"
-
-

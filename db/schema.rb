@@ -24,8 +24,8 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_24_143059) do
     t.string "first_name"
     t.string "last_name"
     t.integer "age"
-    t.integer "product_id"
-    t.integer "dog_id"
+    t.integer "product_id", null: false
+    t.integer "dog_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["dog_id"], name: "index_customers_on_dog_id"
