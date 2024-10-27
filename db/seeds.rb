@@ -73,7 +73,7 @@ end
         first_name: Faker::Name.first_name,
         last_name: Faker::Name.last_name,
         age: Faker::Number.between(from: 1, to: 100),
-        dogs: [random_dog]
+        dog_id: random_dog.id
     )
 end
 
