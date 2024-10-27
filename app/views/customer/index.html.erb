@@ -1,0 +1,6 @@
+<h1>Customer#index</h1>
+<ol>
+  <%= @customers.each do |customer| %>
+  <li> <%= link_to customer.first_name, customer %></li>
+  <% end %>
+</ol>
