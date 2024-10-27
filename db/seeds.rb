@@ -77,6 +77,17 @@ end
     end
 end
 
+# CustomerProduct
+# 100.times do
+#     add_customer = Customer.order("RANDOM()").take
+#     add_prodcuct = Product.order("RANDOM()").take
+
+#     new_cust_prod_entry = CustomerProduct.create(
+#         customer_id: add_customer,
+#         product_id: add_prodcuct
+#     )
+# end
+
 
 puts "There are #{Dog.count} Dog"
 puts "There are #{Product.count} Product"
