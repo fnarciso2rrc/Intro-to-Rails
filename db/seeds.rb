@@ -78,16 +78,17 @@ end
 end
 
 # CustomerProduct
-100.times do
-    add_customer = Customer.order("RANDOM()").take
-    add_prodcuct = Product.order("RANDOM()").take
+Customer.find_each do |customer|
+    set_rand_product_count = rand(0..100)
+    rand_products = Product.order("RANDOM()").limit(set_rand_product_count)
 
-    new_cust_prod_entry = CustomerProduct.create(
-        customer_id: add_customer,
-        product_id: add_prodcuct
-    )
+    rand_products.each do |product|
+        CustomerProduct.create(
+            customer_id: customer.id,
+            product_id: product.id
+        )
+    end
 end
-
 
 puts "There are #{Dog.count} Dog"
 puts "There are #{Product.count} Product"
