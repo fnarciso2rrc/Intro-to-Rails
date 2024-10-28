@@ -65,15 +65,20 @@ end
 
 # CUSTOMER
 150.times do
-    add_dog = Dog.order("RANDOM()").take
+    set_rand_dog_count = rand(0..10)
 
-    if !Customer.exists?(dog_id: add_dog)
-        new_customer = Customer.create(
-            first_name: Faker::Name.first_name,
-            last_name: Faker::Name.last_name,
-            age: Faker::Number.between(from: 1, to: 100),
-            dog_id: add_dog.id
-        )
+    new_customer = Customer.create(
+        first_name: Faker::Name.first_name,
+        last_name: Faker::Name.last_name,
+        age: Faker::Number.between(from: 1, to: 100)
+    )
+
+    set_rand_dog_count.times do
+        rand_dog = Dog.order("RANDOM()").take
+
+        if !Customer.exists?(dog_id: rand_dog.id)
+            new_customer.update(dog_id: rand_dog.id)
+        end
     end
 end
 
@@ -93,3 +98,4 @@ end
 puts "There are #{Dog.count} Dog"
 puts "There are #{Product.count} Product"
 puts "There are #{Customer.count} Customers"
+puts "There are #{CustomerProduct.count} CustomerProduct entries"
