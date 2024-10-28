@@ -77,7 +77,7 @@ end
     end
 end
 
-CustomerProduct
+# CustomerProduct
 100.times do
     add_customer = Customer.order("RANDOM()").take
     add_prodcuct = Product.order("RANDOM()").take
