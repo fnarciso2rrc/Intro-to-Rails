@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
-  get "products/index"
-  get "products/show"
-  resources :customers, only: %i[index show]
+  resources :products
+  resources :customers
   resources :dogs
 
   # get "customers/index"

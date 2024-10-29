@@ -1,2 +1,25 @@
-<h1>Products#show</h1>
-<p>Find me in app/views/products/show.html.erb</p>
+<h1><%= @product.product_name %></h1>
+
+<p>Category: <%= @product.category%></p>
+<p>Price: <%= @product.price%></p>
+<p>Description: 
+    <br>
+    <%= @product.description%>
+</p>
+
+
+<h3>Customers who bought this product:</h3>
+<div>
+    <ul>
+        <% @product.customers.each do |customer| %>
+            <li><%= link_to "#{customer.first_name} #{customer.last_name}", customer %></li>
+        <% end %>
+    </ul>
+</div>
+
+
+<ul>
+  <li><%= link_to 'Dogs', dogs_path %></li>
+  <li><%= link_to 'Customers', customers_path %></li>
+  <li><%= link_to 'Products', products_path %></li>
+</ul>
