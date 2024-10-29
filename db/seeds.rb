@@ -84,7 +84,7 @@ end
 
 # CustomerProduct
 Customer.find_each do |customer|
-    set_rand_product_count = rand(0..100)
+    set_rand_product_count = rand(0..50)
     rand_products = Product.order("RANDOM()").limit(set_rand_product_count)
 
     rand_products.each do |product|
