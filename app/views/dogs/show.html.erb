@@ -7,4 +7,6 @@
 
 <p>This dog belongs to <%= link_to @dog.customer.first_name, customer_path(@dog.customer) %></p>
 
-<p><%= link_to 'All dogs', dogs_path %></p>
+<ul>
+  <li><%= link_to 'Dogs', dogs_path %></li>
+  <li><%= link_to 'Customers', customers_path %></li></ul>
