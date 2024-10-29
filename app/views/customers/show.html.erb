@@ -1,18 +1,25 @@
 <h1><%= "#{@customer.first_name} #{@customer.last_name}"%></h1>
 
-<p>This customer has <%= @customer.dogs.count %> dogs: </p>
-
+<h3>This customer has <%= @customer.dogs.count %> dogs: </h3>
 <ul>
   <% @customer.dogs.each do |dog|%>
     <li><%= link_to dog.dog_name, dog %> </li>
   <% end %>
 </ul>
 
-<p></p>
+<h3>Customer's cart:</h3>
+<div>
+    <ul>
+        <% @customer.products.each do |product| %>
+            <li><%= link_to product.product_name, product %></li>
+        <% end %>
+    </ul>
+</div>
 
 <ul>
   <li><%= link_to 'Dogs', dogs_path %></li>
   <li><%= link_to 'Customers', customers_path %></li>
+  <li><%= link_to 'Products', products_path %></li>
 </ul>
 
 
