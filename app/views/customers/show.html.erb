@@ -2,7 +2,7 @@
 
 
   <% @customer.dogs.each do |dog| %>
-    <p><%= dog.dog_name %></p>
+    <p><%= "#{dog.main_breed} : #{dog.dog_name}" %></p>
   <% end %>
 
 
