@@ -1,2 +1,9 @@
-<h1>Customers#show</h1>
-<p>Find me in app/views/customers/show.html.erb</p>
+<h1><%= "#{@customer.first_name} #{@customer.last_name}"%></h1>
+
+
+  <% @customer.dogs.each do |dog| %>
+    <p><%= dog.dog_name %></p>
+  <% end %>
+
+
+
