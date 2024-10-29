@@ -3,7 +3,7 @@
 <ol>
   <% @dogs.each do |dog| %>
   <li>
-    <%= link_to "#{dog.dog_name}: #{dog.main_breed}, #{dog.main_breed}", customer_path(dog)%>
+    <%= link_to dog.dog_name, dog %>
   </li>
   <% end %>
 </ol>

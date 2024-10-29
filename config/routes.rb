@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :customers, only: %i[index show]
-  resources :dogs, only: %i[index show]
+  resources :dogs
 
   # get "customers/index"
   # get "customers/show"

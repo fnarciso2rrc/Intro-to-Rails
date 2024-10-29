@@ -1,9 +1,10 @@
 <h1><%= "#{@customer.first_name} #{@customer.last_name}"%></h1>
 
-
-  <% @customer.dogs.each do |dog| %>
-    <p><%= "#{dog.main_breed} : #{dog.dog_name}" %></p>
+<ul>
+  <% @customer.dogs.each do |dog|%>
+    <li><%= link_to dog.dog_name, dog %> </li>
   <% end %>
+</ul>
 
 
 
