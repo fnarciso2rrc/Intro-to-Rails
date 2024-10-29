@@ -24,8 +24,10 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_29_153800) do
     t.string "first_name"
     t.string "last_name"
     t.integer "age"
+    t.integer "product_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_customers_on_product_id"
   end
 
   create_table "dogs", force: :cascade do |t|
@@ -48,5 +50,6 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_29_153800) do
 
   add_foreign_key "customer_products", "customers"
   add_foreign_key "customer_products", "products"
+  add_foreign_key "customers", "products"
   add_foreign_key "dogs", "customers"
 end
