@@ -27,7 +27,7 @@ breeds = dog_breeds['message'].flat_map do |breed, sub_breeds|
     sub_breeds.empty? ? [ breed ] : sub_breeds.map { |sub| "#{breed}-#{sub}" }
 end
 
-75.times do
+100.times do
     main_breed = breeds.sample
 
     breed_parts = main_breed.split('-')
@@ -65,7 +65,7 @@ end
 
 # CUSTOMER
 150.times do
-    set_rand_dog_count = rand(0..10)
+    set_rand_dog_count = rand(0..5)
 
     new_customer = Customer.create(
         first_name: Faker::Name.first_name,
