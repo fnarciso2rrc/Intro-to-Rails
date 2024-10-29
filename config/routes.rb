@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
-  get "dogs/index"
-  get "dogs/show"
   resources :customers, only: %i[index show]
+  resources :dogs, only: %i[index show]
 
   # get "customers/index"
   # get "customers/show"
+  # get "dogs/index"
+  # get "dogs/show"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
