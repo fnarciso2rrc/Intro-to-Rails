@@ -76,8 +76,8 @@ end
     set_rand_dog_count.times do
         rand_dog = Dog.order("RANDOM()").take
 
-        if !Customer.exists?(dog_id: rand_dog.id)
-            new_customer.update(dog_id: rand_dog.id)
+        if !rand_dog.customer_id
+            rand_dog.update(customer_id: new_customer.id)
         end
     end
 end
