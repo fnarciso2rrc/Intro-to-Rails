@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_10_24_143059) do
+ActiveRecord::Schema[7.2].define(version: 2024_10_29_153800) do
   create_table "customer_products", force: :cascade do |t|
     t.integer "customer_id", null: false
     t.integer "product_id", null: false
@@ -25,10 +25,8 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_24_143059) do
     t.string "last_name"
     t.integer "age"
     t.integer "product_id"
-    t.integer "dog_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["dog_id"], name: "index_customers_on_dog_id"
     t.index ["product_id"], name: "index_customers_on_product_id"
   end
 
@@ -38,6 +36,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_24_143059) do
     t.string "dog_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "customer_id"
   end
 
   create_table "products", force: :cascade do |t|
@@ -51,6 +50,6 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_24_143059) do
 
   add_foreign_key "customer_products", "customers"
   add_foreign_key "customer_products", "products"
-  add_foreign_key "customers", "dogs"
   add_foreign_key "customers", "products"
+  add_foreign_key "dogs", "customers"
 end

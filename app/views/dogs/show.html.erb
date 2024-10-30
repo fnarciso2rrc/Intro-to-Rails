@@ -1,0 +1,14 @@
+<h1><%= @dog.dog_name %></h1>
+
+
+<p>
+    <%= @dog.dog_name %> is a <%= @dog.sub_breed ? @dog.sub_breed : ''%> <%= @dog.main_breed %>
+</p>
+
+<p>This dog belongs to <%= link_to @dog.customer.first_name, customer_path(@dog.customer) %></p>
+
+<ul>
+  <li><%= link_to 'Dogs', dogs_path %></li>
+  <li><%= link_to 'Customers', customers_path %></li>
+  <li><%= link_to 'Products', products_path %></li>
+</ul>

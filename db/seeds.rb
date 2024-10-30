@@ -27,7 +27,7 @@ breeds = dog_breeds['message'].flat_map do |breed, sub_breeds|
     sub_breeds.empty? ? [ breed ] : sub_breeds.map { |sub| "#{breed}-#{sub}" }
 end
 
-75.times do
+100.times do
     main_breed = breeds.sample
 
     breed_parts = main_breed.split('-')
@@ -65,21 +65,26 @@ end
 
 # CUSTOMER
 150.times do
-    add_dog = Dog.order("RANDOM()").take
+    set_rand_dog_count = rand(0..5)
 
-    if !Customer.exists?(dog_id: add_dog)
-        new_customer = Customer.create(
-            first_name: Faker::Name.first_name,
-            last_name: Faker::Name.last_name,
-            age: Faker::Number.between(from: 1, to: 100),
-            dog_id: add_dog.id
-        )
+    new_customer = Customer.create(
+        first_name: Faker::Name.first_name,
+        last_name: Faker::Name.last_name,
+        age: Faker::Number.between(from: 1, to: 100)
+    )
+
+    set_rand_dog_count.times do
+        rand_dog = Dog.order("RANDOM()").take
+
+        if !rand_dog.customer_id
+            rand_dog.update(customer_id: new_customer.id)
+        end
     end
 end
 
 # CustomerProduct
 Customer.find_each do |customer|
-    set_rand_product_count = rand(0..100)
+    set_rand_product_count = rand(0..50)
     rand_products = Product.order("RANDOM()").limit(set_rand_product_count)
 
     rand_products.each do |product|
@@ -93,3 +98,4 @@ end
 puts "There are #{Dog.count} Dog"
 puts "There are #{Product.count} Product"
 puts "There are #{Customer.count} Customers"
+puts "There are #{CustomerProduct.count} CustomerProduct entries"

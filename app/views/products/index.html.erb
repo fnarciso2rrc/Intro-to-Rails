@@ -1,0 +1,10 @@
+<h1>Products</h1>
+
+<ol>
+  <% @products.each do |product| %>
+  <li>
+    <%= link_to product.product_name, product%>
+  </li>
+  <% end %>
+</ol>
+
