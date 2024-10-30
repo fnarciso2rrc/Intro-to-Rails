@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
-  get "about_page/show"
+  get "about", to: "about_page#show"
   resources :products
   resources :customers
   resources :dogs
 
-  root to: "about_page#show"
   # get "customers/index"
   # get "customers/show"
   # get "dogs/index"
