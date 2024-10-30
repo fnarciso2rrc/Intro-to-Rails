@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get "about", to: "about_page#show"
   resources :products
   resources :customers
   resources :dogs
