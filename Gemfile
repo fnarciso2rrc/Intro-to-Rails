@@ -21,6 +21,10 @@ gem "jbuilder"
 
 gem "faker"
 
+gem 'bootstrap', '~> 5.1', '>= 5.1.3'
+
+gem 'sassc-rails'
+
 gem 'spring'
 
 
