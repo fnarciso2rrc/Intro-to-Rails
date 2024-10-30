@@ -1,2 +1,28 @@
-<h1>AboutPage#show</h1>
-<p>Find me in app/views/about_page/show.html.erb</p>
+<h1>About</h1>
+<%= image_tag ("ERD.png") %>
+
+<div>
+  <h2><%= link_to 'Customers', customers_path %> Table</h2>
+  <p>
+    This table stores the customer's information, such as their first and last name, and age.
+    <br>The data is taken from <a href="https://github.com/faker-ruby/faker">Faker</a>,
+    which is a tool for generating fake data.
+  </p>
+
+  <h2><%= link_to 'Dogs', dogs_path %> Table</h2>
+  <p>This table stores the dog's information, such as their main breed, sub breed, name, and a reference to the Customer table.
+    <br>The data is taken from <a href="https://dog.ceo/dog-api/">Dog API</a> website.
+  </p>
+
+  <h2><%= link_to 'Products', products_path %> Table</h2>
+  <p>This table stores the product's information, such as their name, category, price, and description.
+    <br>The data is taken from <a href="https://www.kaggle.com/datasets/bhavikjikadara/grocery-store-dataset">Kaggle</a> website by
+    <a href="https://www.kaggle.com/bhavikjikadara">Bhavik Jikadara</a>, which is data originally from Costco's online marketplace.
+  </p>
+
+  <h2>Customer Product</h2>
+  <p>
+    This table stores the entries linking a customer to the product they have purchased.
+    <br>The data is created based on what the customer has purchased.
+  </p>
+</div>
