@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
+
   root "home#index"
-  
+  get "about", to: "about_page#show"
+
   resources :products
   resources :customers
   resources :dogs
