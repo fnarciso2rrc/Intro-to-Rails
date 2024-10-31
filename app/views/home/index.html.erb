@@ -1,26 +1,7 @@
 <h1>Welcome to our Intro to Rails Project!</h1>
 
 <div>
-    <h2>Our customers</h2>
-    <ul class="list-group list-group-flush">
-        <% @customers.each do |customer| %>
-            <li><%= link_to customer.first_name, customer %></li>
-        <% end %>
-    </ul>
-
-    <h2>Our products</h2>
-    <ul class="list-group list-group-flush">
-        <% @products.each do |product| %>
-            <li><%= link_to product.product_name, product %></li>
-        <% end %>
-    </ul>
-
-    <h2>Our dogs</h2>
-    <ul class="list-group list-group-flush">
-        <% @dogs.each do |dog| %>
-            <li><%= link_to dog.dog_name, dog %></li>
-        <% end %>
-    </ul>
+    <p>Our Intro to Rails Project features 4 tables: Product, Customer, Dogs, and CustomerProducts. We used a mixture of Faker, CSV, and JSON files in order to fill our database. A customer will be able to buy multiple products and own multiple dogs. Many products can be bought by many customers. A dog is owned by only one customer.</p>
 </div>
 
 
