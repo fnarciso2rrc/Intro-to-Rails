@@ -1,6 +1,7 @@
 class CustomersController < ApplicationController
+  include PaginationHelper
   def index
-    @customers = Customer.all
+    @customers = paginate(Customer.all, params[:page].to_i)
   end
 
   def show
