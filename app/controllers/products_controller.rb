@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
+  include PaginationHelper
   def index
-    @products = Product.all
-
+    @products = paginate(Product.all, params[:page].to_i)
   end
 
   def show
