@@ -4,14 +4,17 @@ module PaginationHelper
     collection.limit(per_page).offset(offset)
   end
 
-  def page_link(collection, page, per_page)
+  def page_link(collection, chosen_path, per_size = 25)
     links = ""
+    page = params[:page].to_i
+    previous_link = params[:page].to_i - 1
+    next_link = params[:page].to_i + 1
 
-    if page.to_i > 1
-      links = link_to "Previous", root_path(page: params[:page].to_i - 1)
+    if page > 1
+      links = link_to "Previous", send(chosen_path, page: previous_link)
     end
-    if total_pages.size == per_page
-      link = link_to "Next", root_path(page: params[:page].to_i + 1)
+    if collection.size == per_size
+      links = link_to "Next", send(chosen_path, page: next_link)
     end
   end
 end
