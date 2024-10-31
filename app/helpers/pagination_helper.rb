@@ -4,3 +4,5 @@ module PaginationHelper
     collection.limit(per_page).offset(offset)
   end
 end
+
+# Source: https://www.geeksforgeeks.org/how-to-implement-pagination-in-ruby-on-rails/
