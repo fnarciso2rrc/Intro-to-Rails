@@ -21,12 +21,13 @@ gem "jbuilder"
 
 gem "faker"
 
-gem 'bootstrap', '~> 5.1', '>= 5.1.3'
+gem "bootstrap", "~> 5.1", ">= 5.1.3"
 
-gem 'sassc-rails'
+gem "sassc-rails"
 
-gem 'spring'
+gem "spring"
 
+gem "kaminari"
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
@@ -59,7 +60,7 @@ group :development do
   gem "web-console"
 
   # Highlight the fine-grained location where an error occurred [https://github.com/ruby/error_highlight]
-  gem "error_highlight", ">= 0.4.0", platforms: [:ruby]
+  gem "error_highlight", ">= 0.4.0", platforms: [ :ruby ]
 end
 
 group :test do
