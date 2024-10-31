@@ -1,18 +1,46 @@
-<h1><%= @product.product_name %></h1>
+<div class="container">
+    <div class="row"></div>
 
-<p>Category: <%= @product.category%></p>
-<p>Price: <%= @product.price%></p>
-<p>Description: 
-    <br>
-    <%= @product.description%>
-</p>
+        <div class="col my-5">
+            <h1><%= @product.product_name %></h1>
+        </div>
 
+    <div class="row">
+        <div class="col-md-4">
+            <p>
+                <strong>Category:</strong> 
+                <%= @product.category%>
+            </p>
+        </div>
+        <div class="col-md">
+            <p>
+                <strong>Price:</strong> 
+                <%= @product.price%>
+            </p>
+        </div>
+    </div>
 
-<h3>Customers who bought this product:</h3>
-<div>
-    <ul>
-        <% @product.customers.each do |customer| %>
-            <li><%= link_to "#{customer.first_name} #{customer.last_name}", customer %></li>
-        <% end %>
-    </ul>
+    <div class="row">
+        <div class="col">
+            <p>
+                <strong>Description:</strong>
+                <br>
+                <%= @product.description%>
+            </p>
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col">
+            <h3>Customers who bought this product:</h3>
+            <div>
+                <ul>
+                    <% @product.customers.each do |customer| %>
+                        <li><%= link_to "#{customer.first_name} #{customer.last_name}", customer %></li>
+                    <% end %>
+                </ul>
+            </div>
+        </div>
+    </div>
 </div>
+
