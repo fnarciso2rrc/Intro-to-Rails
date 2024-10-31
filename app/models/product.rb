@@ -4,4 +4,13 @@ class Product < ApplicationRecord
 
   validates :product_name, :category, :price, :description, presence: true
   validates :price, numericality: {greater_than: 0}
+
+  def self.search(search)
+    if search.present?
+      Product.where("product_name LIKE ?", "%#{search}%")
+    else
+      @products = Product.all
+    end
+  end
+
 end
