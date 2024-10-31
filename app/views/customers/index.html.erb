@@ -8,8 +8,12 @@
   <% end %>
 </ol>
 
-<p>
+<div>
+  <p>
   <%= next_page(@customers, :customers_path)%>
-  <%= "Page #{params[:page]}"%>
+  <% if params[:page].to_i >= 2 %>
+    <%= "Page #{params[:page]}" %>
+  <% end %>
   <%= previous_page(@customers, :customers_path)%>
-</p>
+  </p>
+</div>
