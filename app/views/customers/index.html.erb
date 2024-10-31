@@ -1,5 +1,11 @@
 <h1>Customers</h1>
 
+<%= form_tag customers_url, :method => "get" do %>
+  <%= label_tag(:search, "Search for a customer:") %>
+  <%= text_field_tag :search, params[:search] %>
+  <%= submit_tag("Search") %>
+<% end %>
+
 <ol>
   <% @customers.each do |customer| %>
   <li>
