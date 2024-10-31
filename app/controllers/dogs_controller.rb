@@ -1,6 +1,7 @@
 class DogsController < ApplicationController
+  include PaginationHelper
   def index
-    @dogs = Dog.all
+    @dogs = paginate(Dog.all, params[:page].to_i)
   end
 
   def show
