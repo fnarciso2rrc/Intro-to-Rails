@@ -1,10 +1,35 @@
-<h1>Products</h1>
+<div class="container">
+  <div class="row my-5 d-flex justify-content-between">
+      <div class="col">
+        <h1>Products</h1>
+      </div>
+    <div class="col-auto">
+      <div class="container">
+            <%= form_tag products_url, :method => "get" do %>
+            <%= label_tag(:search, "Search for product:") %>
+            <%= text_field_tag :search, params[:search] %>
+            <%= submit_tag("Search", :product_name => nil)%>
+            <% end %>
+      </div>
+    </div>
+  </div>
 
-<ol>
-  <% @products.each do |product| %>
-  <li>
-    <%= link_to product.product_name, product%>
-  </li>
-  <% end %>
-</ol>
+  <div class="row">
+    <div class="col">
+      <ol>
+        <% @products.each do |product| %>
+        <li>
+          <%= link_to product.product_name, product%>
+        </li>
+        <% end %>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<div class="paginate">
+    <%= paginate @products %>
+</div>
+
+
 

@@ -1,9 +1,27 @@
-<h1><%= @dog.dog_name %></h1>
+<div class="container">
+    <div class="row my-5">
+        <div class="col">
+            <h1><%= @dog.dog_name %></h1>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <p>
+                <%= @dog.dog_name %> is a 
+                <strong>
+                    <%= @dog.sub_breed ? @dog.sub_breed : ''%> <%= @dog.main_breed %>
+                </strong>
+            </p>
+            <p>
+                This dog belongs to <%= link_to @dog.customer.first_name, customer_path(@dog.customer) %>
+            </p>
+        </div>
+        </div>
+    </div>
+</div>
 
 
-<p>
-    <%= @dog.dog_name %> is a <%= @dog.sub_breed ? @dog.sub_breed : ''%> <%= @dog.main_breed %>
-</p>
 
-<p>This dog belongs to <%= link_to @dog.customer.first_name, customer_path(@dog.customer) %></p>
+
 
