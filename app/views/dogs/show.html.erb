@@ -8,7 +8,7 @@
     <div class="row">
         <div class="col">
             <p>
-                <%= @dog.dog_name %> is a 
+                <%= @dog.dog_name %> is a
                 <strong>
                     <%= @dog.sub_breed ? @dog.sub_breed : ''%> <%= @dog.main_breed %>
                 </strong>
@@ -16,7 +16,6 @@
             <p>
                 This dog belongs to <%= link_to @dog.customer.first_name, customer_path(@dog.customer) %>
             </p>
-        </div>
         </div>
     </div>
 </div>
