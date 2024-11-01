@@ -31,10 +31,10 @@ en:
   hello: "Hello world"
   views:
     pagination:
-      first: "&laquo; First"
-      last: "Last &raquo;"
-      previous: "&lsaquo; Previous"
-      next: "Next &rsaquo;"
+      first: "&laquo; First &nbsp;"
+      last: "&nbsp; Last &raquo;"
+      previous: "&lsaquo; Previous &nbsp;"
+      next: "&nbsp; Next &rsaquo;"
       truncate: "&hellip;"
   helpers:
     page_entries_info:
