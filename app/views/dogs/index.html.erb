@@ -1,8 +1,5 @@
 <div class="container">
-  <div class="row my-5 d-flex justify-content-between">
-    <div class="col">
-      <h1>Dogs</h1>
-    </div>
+  <div class="row my-3 d-flex justify-content-end">
     <div class="col-auto">
       <%= form_tag dogs_url, :method => "get" do %>
         <%= label_tag(:search, "Search for a dog:") %>
@@ -12,19 +9,25 @@
     </div>
   </div>
 
+  <div class="col d-flex justify-content-center">
+    <h1>Dogs</h1>
+  </div>
   <div class="row px-5">
-    <div class="col">
-      <ol>
+    <div class="col d-flex justify-content-center">
+      <ol class="list-group list-group-flush" style="width: 18rem;">
         <% @dogs.each do |dog| %>
-        <li>
-          <%= link_to dog.dog_name, dog %>
-        </li>
+          <li class="list-group-item d-flex justify-content-center">
+            <%= link_to dog.dog_name, dog,
+            :class => "text-reset link-primary link-offset-2 link-underline link-underline-opacity-0" %>
+          </li>
         <% end %>
       </ol>
     </div>
   </div>
+
+  <div class="mt-3 d-flex justify-content-center">
+    <%= paginate @dogs %>
+  </div>
 </div>
 
-<div class="paginate">
-    <%= paginate @dogs %>
-</div>
+
