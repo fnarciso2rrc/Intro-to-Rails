@@ -12,13 +12,15 @@
   <div class="col d-flex justify-content-center">
     <h1>Customers</h1>
   </div>
+
   <div class="row px-5">
     <div class="col d-flex justify-content-center">
       <ol class="list-group list-group-flush" style="width: 18rem;">
         <% @customers.each do |customer| %>
-        <li class="list-group-item d-flex justify-content-center">
-          <%= link_to "#{customer.first_name} #{customer.last_name}", customer_path(customer), :class => "text-reset link-primary link-offset-2 link-underline link-underline-opacity-0"%>
-        </li>
+          <li class="list-group-item d-flex justify-content-center">
+            <%= link_to "#{customer.first_name} #{customer.last_name}", customer_path(customer),
+            :class => "text-reset link-primary link-offset-2 link-underline link-underline-opacity-0" %>
+          </li>
         <% end %>
       </ol>
     </div>
